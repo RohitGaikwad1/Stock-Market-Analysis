@@ -6,3 +6,4 @@ pandas
 statsmodels
 streamlit_lottie
 requests
+pip install scikit-learn
