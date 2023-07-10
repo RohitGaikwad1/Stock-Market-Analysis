@@ -160,13 +160,13 @@ st.pyplot(ma_plot)
 def visualize_reliance_data(data):
     st.title("Yearly Sum Of The Volume")
     st.sidebar.title("Yearly Sum Of The Volume")
-    data['Year'] = data.Date.dt.year
-    data['Month'] = data.Date.dt.month
+    data['Year'] = pd.to_datetime(data['Date']).dt.year
+    data['Month'] = pd.to_datetime(data['Date']).dt.month
 
     groupby_year = data.groupby(['Year']).sum()
-    
+
     chart_type = st.sidebar.radio('Select chart type', ['Bar Chart', 'Pie Chart', 'Line Chart'])
-    
+
     if chart_type == 'Bar Chart':
         ax = groupby_year['Volume'].plot(kind='bar', figsize=(12, 6), edgecolor='black')
         plt.xlabel('Year', fontsize=14)
