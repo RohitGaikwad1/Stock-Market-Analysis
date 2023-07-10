@@ -206,8 +206,8 @@ def evaluate_holt_winter(data):
     train_slider = st.sidebar.number_input('Train Set Size', min_value=0, max_value=len(data))
     test_slider = st.sidebar.number_input('Test Set Size', min_value=0, max_value=500)
 
-    Train = data.iloc[:train_slider].dropna()
-    Test = data.iloc[train_slider:train_slider + test_slider].dropna()
+    Train = data.reset_index().iloc[:train_slider].dropna()
+    Test = data.reset_index().iloc[train_slider:train_slider + test_slider].dropna()
 
     columns = st.sidebar.multiselect('Select Column', data.columns, key='columns_multiselect')
     st.sidebar.write("You selected", len(columns), 'columns')
