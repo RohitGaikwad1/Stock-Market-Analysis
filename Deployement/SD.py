@@ -210,7 +210,7 @@ def evaluate_holt_winter(data):
     Train = data.iloc[:train_slider].dropna()
     Test = data.iloc[train_slider:train_slider + test_slider].dropna()
 
-    columns = st.sidebar.multiselect('Select Column', data.columns)
+    columns = st.sidebar.multiselect('Select Column', data.columns, key='columns_multiselect')
     st.sidebar.write("You selected", len(columns), 'columns')
     model_type = [
         'Holts Method',
