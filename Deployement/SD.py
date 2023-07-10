@@ -4,6 +4,12 @@
 # In[1]:
 
 
+pip install numpy seaborn matplotlib streamlit pandas statsmodels streamlit_lottie requests
+
+
+# In[2]:
+
+
 import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
@@ -21,13 +27,13 @@ from streamlit_lottie import st_lottie
 import requests
 
 
-# In[2]:
+# In[3]:
 
 
 st.header("Stock Market Analysis")
 
 
-# In[3]:
+# In[4]:
 
 
 def load_lottieurl(url: str):
@@ -40,13 +46,13 @@ animation_url = "https://assets9.lottiefiles.com/packages/lf20_oat3z2uf.json"
 lottie_data = load_lottieurl(animation_url)
 
 
-# In[4]:
+# In[5]:
 
 
 st_lottie(lottie_data, height=300,width=300)
 
 
-# In[5]:
+# In[6]:
 
 
 ticker_options = ['RELIANCE.NS', 'AAPL', 'GOOGL']
@@ -72,7 +78,7 @@ Reliance4 = Reliance.copy()
 Reliance4 = Reliance4.set_index(['Date'])
 
 
-# In[6]:
+# In[7]:
 
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
@@ -139,7 +145,7 @@ def plot_visualizations(data):
 plot_visualizations(Reliance4)
 
 
-# In[7]:
+# In[8]:
 
 
 columns = ['Open','High','Low','Close','Volume']
@@ -154,7 +160,7 @@ plt.plot(ma, 'red')
 st.pyplot(ma_plot)
 
 
-# In[8]:
+# In[9]:
 
 
 def visualize_reliance_data(data):
@@ -187,7 +193,7 @@ def visualize_reliance_data(data):
 visualize_reliance_data(Reliance)
 
 
-# In[9]:
+# In[10]:
 
 
 import streamlit as st
