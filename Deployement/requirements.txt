@@ -1,0 +1,8 @@
+numpy
+seaborn
+matplotlib
+streamlit
+pandas
+statsmodels
+streamlit_lottie
+requests
