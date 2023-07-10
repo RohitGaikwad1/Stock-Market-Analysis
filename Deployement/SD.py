@@ -339,7 +339,7 @@ def evaluate_holt_winter(data):
 
 
 
-evaluate_holt_winter(Reliance)
+evaluate_holt_winter(Reliance4)
 
 
 # In[ ]:
