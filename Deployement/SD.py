@@ -160,8 +160,8 @@ st.pyplot(ma_plot)
 def visualize_reliance_data(data):
     st.title("Yearly Sum Of The Volume")
     st.sidebar.title("Yearly Sum Of The Volume")
-    data['Year'] = data.Date.dt.strftime('%Y')
-    data['Month'] = data.Date.dt.strftime('%b')
+    data['Year'] = data.Date.dt.year
+    data['Month'] = data.Date.dt.month
 
     groupby_year = data.groupby(['Year']).sum()
     
