@@ -186,8 +186,6 @@ def visualize_reliance_data(data):
 
 visualize_reliance_data(Reliance)
 
-Reliance
-
 # In[9]:
 
 
@@ -341,7 +339,7 @@ def evaluate_holt_winter(data):
 
 
 
-evaluate_holt_winter(Reliance)
+evaluate_holt_winter(df)
 
 
 # In[ ]:
