@@ -4,7 +4,7 @@
 # In[1]:
 
 
-pip install numpy seaborn matplotlib streamlit pandas statsmodels streamlit_lottie requests
+
 
 
 # In[2]:
