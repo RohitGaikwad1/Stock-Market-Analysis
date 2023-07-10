@@ -183,7 +183,6 @@ def visualize_reliance_data(data):
 
     st.pyplot()
 
-
 visualize_reliance_data(Reliance)
 
 
