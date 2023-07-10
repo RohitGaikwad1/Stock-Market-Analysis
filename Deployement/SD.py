@@ -160,28 +160,29 @@ st.pyplot(ma_plot)
 def visualize_reliance_data(data):
     st.title("Yearly Sum Of The Volume")
     st.sidebar.title("Yearly Sum Of The Volume")
-    data['Year'] = pd.to_datetime(data['Date']).dt.year
-    data['Month'] = pd.to_datetime(data['Date']).dt.month
+    data['Date'] = pd.to_datetime(data['Date'])  # Convert 'Date' column to datetime if not already
+    data.set_index('Date', inplace=True)  # Set 'Date' as the index
 
-    groupby_year = data.groupby(['Year']).sum()
+    groupby_year = data['Volume'].resample('Y').sum()  # Calculate yearly sum of the volume
 
     chart_type = st.sidebar.radio('Select chart type', ['Bar Chart', 'Pie Chart', 'Line Chart'])
 
     if chart_type == 'Bar Chart':
-        ax = groupby_year['Volume'].plot(kind='bar', figsize=(12, 6), edgecolor='black')
+        ax = groupby_year.plot(kind='bar', figsize=(12, 6), edgecolor='black')
         plt.xlabel('Year', fontsize=14)
 
         for i in ax.containers:
             ax.bar_label(i)
 
     elif chart_type == 'Pie Chart':
-        groupby_year['Volume'].plot(kind='pie', figsize=(8, 8), explode=[0, 0, 0, 0, 0, 0.05, 0, 0], autopct='%1.2f%%')
+        groupby_year.plot(kind='pie', figsize=(8, 8), explode=[0, 0, 0, 0, 0, 0.05, 0, 0], autopct='%1.2f%%')
         plt.title('Volume', fontsize=14)
 
     elif chart_type == 'Line Chart':
-        groupby_year['Volume'].plot(figsize=(10, 6), color='Skyblue', marker='X')
+        groupby_year.plot(figsize=(10, 6), color='Skyblue', marker='X')
 
     st.pyplot()
+
 
 visualize_reliance_data(Reliance)
 
